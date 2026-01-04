@@ -44,4 +44,6 @@
 ## SiFileManager ##
 ###################
 
+*.pyc
+#__pycache__/
 /build/
