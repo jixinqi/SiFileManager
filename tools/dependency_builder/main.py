@@ -13,6 +13,7 @@ def main():
     else                   : return
 
     builder.boost(env).build()
+    builder.glfw(env).build()
 
 if(__name__ == "__main__"):
     main()
