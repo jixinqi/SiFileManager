@@ -22,6 +22,8 @@ class builder_base(abc.ABC):
         if(self.module_pre_build_dir.exists()): shutil.rmtree(self.module_pre_build_dir)
         if(self.module_build_dir.exists()):     shutil.rmtree(self.module_build_dir)
         if(self.module_install_dir.exists()):   shutil.rmtree(self.module_install_dir)
+
+        self.module_build_dir.mkdir(parents=True)
         shutil.copytree(self.module_source_dir, self.module_pre_build_dir)
         self.build_impl()
 
