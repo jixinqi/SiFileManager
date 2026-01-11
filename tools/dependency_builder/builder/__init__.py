@@ -2,4 +2,5 @@
 
 from .builder_boost import builder_boost as boost
 from .builder_glfw  import builder_glfw  as glfw
+from .builder_imgui import builder_imgui as imgui
 

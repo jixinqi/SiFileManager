@@ -8,7 +8,7 @@
             "name": "SiFileManager",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/SiFileManager.exe",
+            "program": "${workspaceFolder}/build/Debug/SiFileManager.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

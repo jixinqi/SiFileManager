@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "SiFileManager/Debug/Static",
+      "displayName": "SiFileManager(GLFW + ImGui)",
+      "generator": "Visual Studio 18 2026",
+      "binaryDir": "${sourceDir}/build/Debug/Static/build/SiFileManager",
+      "cacheVariables": {
+        "GLFW_CMAKE_PREFIX"  : "${sourceDir}/build/Debug/Static/install/glfw",
+        "IMGUI_CMAKE_PREFIX" : "${sourceDir}/build/Debug/Static/install/imgui"
+      }
+    }
+  ]
+}
