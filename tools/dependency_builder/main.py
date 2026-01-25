@@ -15,6 +15,7 @@ def main():
     builder.boost(env).build()
     builder.glfw(env).build()
     builder.imgui(env).build()
+    builder.json(env).build()
 
 if(__name__ == "__main__"):
     main()

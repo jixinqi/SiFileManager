@@ -14,7 +14,7 @@ class builder_boost(builder_base):
 
     def build_impl(self):
         bootstrap_cmd = ""
-        if(isinstance(self.env, environment.win)): bootstrap_cmd = "bootstrap.bat"
+        if(isinstance(self.env, environment.win)): bootstrap_cmd = "bootstrap.bat msvc"
 
         b2_cmd = f'b2 install address-model=64 --build-dir="{self.module_build_dir}" --prefix="{self.module_install_dir}"'
         if(self.env.build_type == environment.BuildType.DEBUG): b2_cmd += " variant=debug"
