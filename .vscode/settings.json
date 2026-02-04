@@ -1,0 +1,7 @@
+{
+    // "cmake.outputLogEncoding": "utf-8",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/build/Debug/Static/build/SiFileManager/",
+        "--header-insertion=never"
+    ]
+}

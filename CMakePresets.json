@@ -1,15 +1,17 @@
 {
-  "version": 3,
-  "configurePresets": [
-    {
-      "name": "SiFileManager/Debug/Static",
-      "displayName": "SiFileManager(GLFW + ImGui)",
-      "generator": "Visual Studio 18 2026",
-      "binaryDir": "${sourceDir}/build/Debug/Static/build/SiFileManager",
-      "cacheVariables": {
-        "GLFW_CMAKE_PREFIX"  : "${sourceDir}/build/Debug/Static/install/glfw",
-        "IMGUI_CMAKE_PREFIX" : "${sourceDir}/build/Debug/Static/install/imgui"
-      }
-    }
-  ]
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "SiFileManager/Debug/Static",
+            "displayName": "SiFileManager(GLFW+OpenGL3)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/Debug/Static/build/SiFileManager",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl",
+                "CMAKE_CXX_COMPILER": "cl",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "THIRD_PARTY_DIR": "${sourceDir}/build/Debug/Static/install"
+            }
+        }
+    ]
 }

@@ -19,9 +19,9 @@ class builder_json(builder_base):
                     f' -S "{self.module_pre_build_dir}"'
                     f' -DCMAKE_INSTALL_PREFIX="{self.module_install_dir}"'
 
-                    f' -DCMAKE_CXX_FLAGS_INIT="/utf-8"'
+                    f' -DCMAKE_CXX_FLAGS_INIT="/utf-8 /EHsc"'
                     ,
-                f'cmake --build   "{self.module_build_dir}" --config={self.env.build_type.value}',
+                f'cmake --build   "{self.module_build_dir}" --config={self.env.build_type.value} -j',
                 f'cmake --install "{self.module_build_dir}" --config={self.env.build_type.value}'
             ],
             cwd = self.module_pre_build_dir,

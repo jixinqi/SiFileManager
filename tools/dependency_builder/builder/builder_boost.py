@@ -13,25 +13,23 @@ class builder_boost(builder_base):
         super().__init__("boost", env)
 
     def build_impl(self):
-        bootstrap_cmd = ""
-        if(isinstance(self.env, environment.win)): bootstrap_cmd = "bootstrap.bat msvc"
-
-        b2_cmd = f'b2 install address-model=64 --build-dir="{self.module_build_dir}" --prefix="{self.module_install_dir}"'
-        if(self.env.build_type == environment.BuildType.DEBUG): b2_cmd += " variant=debug"
-        else:                                                   b2_cmd += " variant=release"
-
-        if(self.env.link_type == environment.LinkType.STATIC):  b2_cmd += " link=static runtime-link=static"
-        else:                                                   b2_cmd += " link=shared runtime-link=shared"
-
         self.env.run_commands(
             commands = [
-                bootstrap_cmd,
-                b2_cmd
+                f'cmake -B "{self.module_build_dir}"'
+                    f' -S "{self.module_pre_build_dir}"'
+                    f' -DCMAKE_INSTALL_PREFIX="{self.module_install_dir}"'
+
+                    f' -DBOOST_ENABLE_PYTHON=ON'
+                    f' -DBUILD_SHARED_LIBS=OFF'
+
+                    f' -DCMAKE_CXX_FLAGS_INIT="/utf-8 /EHsc /D_WIN32_WINNT=0x0A00"'
+                    ,
+                f'cmake --build   "{self.module_build_dir}" --config={self.env.build_type.value} -j',
+                f'cmake --install "{self.module_build_dir}" --config={self.env.build_type.value}'
             ],
             cwd = self.module_pre_build_dir,
             log_file = self.module_install_dir / f"build__{self.module_name}.log"
         )
-
 def main():
     pass
 
