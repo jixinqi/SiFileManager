@@ -17,7 +17,8 @@ def main():
     #builder.imgui(env).build()
     #builder.json(env).build()
     #builder.spdlog(env).build()
-    builder.libpsl(env).build()
+    #builder.libpsl(env).build()
+    builder.curl(env).build()
 
 if(__name__ == "__main__"):
     main()
