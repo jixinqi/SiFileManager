@@ -13,3 +13,6 @@
 [submodule "third_party/spdlog"]
 	path = third_party/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "third_party/libpsl"]
+	path = third_party/libpsl
+	url = https://github.com/rockdaboot/libpsl.git

@@ -4,6 +4,8 @@ import sys
 import pathlib
 sys.path.append(pathlib.Path(__file__).parent)
 
+import shutil
+
 import environment as environment
 
 from .builder_base import builder_base
@@ -13,7 +15,6 @@ class builder_imgui(builder_base):
         super().__init__("imgui", env)
 
     def __gen_cmake_files(self):
-        import shutil
 
         pathlib.Path(self.module_pre_build_dir / "cmake").mkdir(parents=True, exist_ok=True)
         shutil.copy(
