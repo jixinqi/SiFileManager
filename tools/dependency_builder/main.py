@@ -12,12 +12,13 @@ def main():
     elif system == "Linux" : pass # to do
     else                   : return
 
-    #builder.boost(env).build()
-    #builder.glfw(env).build()
-    #builder.imgui(env).build()
-    #builder.json(env).build()
-    #builder.spdlog(env).build()
-    #builder.libpsl(env).build()
+    builder.boost(env).build()
+    builder.glfw(env).build()
+    builder.imgui(env).build()
+    builder.json(env).build()
+    builder.spdlog(env).build()
+    builder.libpsl(env).build()
+    builder.zlib(env).build()
     builder.curl(env).build()
 
 if(__name__ == "__main__"):

@@ -13,6 +13,10 @@ class builder_curl(builder_base):
         super().__init__("curl", env)
 
     def build_impl(self):
+        zlib_filename = "zs.lib"
+        if(self.env.build_type == environment.BuildType.DEBUG):
+            zlib_filename = "zsd.lib"
+
         self.env.run_commands(
             commands = [
                 f'cmake -B "{self.module_build_dir}"'
@@ -29,6 +33,9 @@ class builder_curl(builder_base):
                     f' -DLIBPSL_INCLUDE_DIR='      f'"{ self.module_install_dir.parent / "libpsl"  / "include" }"'
                     f' -DLIBPSL_LIBRARY='          f'"{ self.module_install_dir.parent / "libpsl"  / "lib" / "psl.lib" }"'
                     f' -D_libpsl_CFLAGS='          f'"-DPSL_API="'
+
+                    f' -DZLIB_INCLUDE_DIR='        f'"{ self.module_install_dir.parent / "zlib"    / "include" }"'
+                    f' -DZLIB_LIBRARY='            f'"{ self.module_install_dir.parent / "zlib"    / "lib" / zlib_filename }"'
                     ,
                 f'cmake --build   "{self.module_build_dir}" --config={self.env.build_type.value}',
                 f'cmake --install "{self.module_build_dir}" --config={self.env.build_type.value}'
