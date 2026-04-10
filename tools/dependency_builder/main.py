@@ -19,6 +19,7 @@ def main():
     builder.spdlog(env).build()
     builder.libpsl(env).build()
     builder.zlib(env).build()
+    builder.zstd(env).build()
     builder.curl(env).build()
 
 if(__name__ == "__main__"):

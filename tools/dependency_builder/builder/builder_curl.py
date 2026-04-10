@@ -36,6 +36,10 @@ class builder_curl(builder_base):
 
                     f' -DZLIB_INCLUDE_DIR='        f'"{ self.module_install_dir.parent / "zlib"    / "include" }"'
                     f' -DZLIB_LIBRARY='            f'"{ self.module_install_dir.parent / "zlib"    / "lib" / zlib_filename }"'
+
+                    f' -DCURL_ZSTD=ON'
+                    f' -DZSTD_INCLUDE_DIR='        f'"{ self.module_install_dir.parent / "zstd"    / "include" }"'
+                    f' -DZSTD_LIBRARY='            f'"{ self.module_install_dir.parent / "zstd"    / "lib" / "zstd_static.lib" }"'
                     ,
                 f'cmake --build   "{self.module_build_dir}" --config={self.env.build_type.value}',
                 f'cmake --install "{self.module_build_dir}" --config={self.env.build_type.value}'
